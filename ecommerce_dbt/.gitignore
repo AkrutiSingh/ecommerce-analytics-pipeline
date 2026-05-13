@@ -1,0 +1,9 @@
+# Never push these to GitHub
+.env
+venv/
+target/
+dbt_packages/
+__pycache__/
+*.pyc
+.DS_Store
+logs/

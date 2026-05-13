@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: raw
+    database: ECOMMERCE_DB
+    schema: RAW
+    tables:
+      - name: ORDERS
+        columns:
+          - name: ORDER_ID
+            tests:
+              - unique
+              - not_null
+          - name: CUSTOMER_ID
+            tests:
+              - not_null
+
+      - name: CUSTOMERS
+        columns:
+          - name: CUSTOMER_ID
+            tests:
+              - unique
+              - not_null
+
+      - name: ORDER_ITEMS
+        columns:
+          - name: ORDER_ID
+            tests:
+              - not_null
+          - name: PRICE
+            tests:
+              - not_null
+
+      - name: PRODUCTS
+        columns:
+          - name: PRODUCT_ID
+            tests:
+              - unique
+              - not_null
+
+      - name: SELLERS
+        columns:
+          - name: SELLER_ID
+            tests:
+              - unique
+              - not_null
+
+      - name: ORDER_PAYMENTS
+        columns:
+          - name: ORDER_ID
+            tests:
+              - not_null
+
+      - name: ORDER_REVIEWS
+        columns:
+          - name: ORDER_ID
+            tests:
+              - not_null
+
+      - name: CATEGORY_TRANSLATION
+        columns:
+          - name: PRODUCT_CATEGORY_NAME
+            tests:
+              - unique
+              - not_null
