@@ -139,27 +139,34 @@ ecommerce-pipeline/
 
 ## ✅ Data Quality Tests
 
-25 automated dbt tests — all passing ✅
+**25 automated dbt tests — all passing**
 
-Source Tests (RAW layer):
-✅ orders.order_id          → unique, not_null
-✅ customers.customer_id    → unique, not_null
-✅ products.product_id      → unique, not_null
-✅ sellers.seller_id        → unique, not_null
-✅ order_items.order_id     → not_null
-✅ order_items.price        → not_null
-✅ order_payments.order_id  → not_null
-✅ order_reviews.order_id   → not_null
-Model Tests (Gold layer):
-✅ fct_orders.order_id           → unique, not_null
-✅ fct_orders.customer_id        → not_null
-✅ fct_orders.order_status       → not_null
-✅ monthly_revenue.order_month   → unique, not_null
-✅ monthly_revenue.total_revenue → not_null
-✅ top_products.category         → unique, not_null
-✅ top_products.total_revenue    → not_null
+**Source Tests (RAW layer):**
+| Table | Column | Tests |
+|-------|--------|-------|
+| orders | order_id | unique, not_null |
+| customers | customer_id | unique, not_null |
+| products | product_id | unique, not_null |
+| sellers | seller_id | unique, not_null |
+| order_items | order_id | not_null |
+| order_items | price | not_null |
+| order_payments | order_id | not_null |
+| order_reviews | order_id | not_null |
 
----
+**Model Tests (Gold layer):**
+| Model | Column | Tests |
+|-------|--------|-------|
+| fct_orders | order_id | unique, not_null |
+| fct_orders | customer_id | not_null |
+| fct_orders | order_status | not_null |
+| monthly_revenue | order_month | unique, not_null |
+| monthly_revenue | total_revenue | not_null |
+| top_products | category | unique, not_null |
+| top_products | total_revenue | not_null |
+
+```
+dbt test result: PASS=25 WARN=0 ERROR=0
+```
 
 ## 🚀 How to Run This Project
 
