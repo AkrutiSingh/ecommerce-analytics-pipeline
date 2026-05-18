@@ -59,46 +59,48 @@ Live Analytics Dashboard
 
 ## 📁 Project Structure
 
+```
 ecommerce-pipeline/
-│
-├── .env.example                    # Credential template (never commit .env)
-├── .gitignore                      # Protects credentials and venv
-├── requirements.txt                # Python dependencies
-├── README.md                       # You are here!
+├── .env.example
+├── .gitignore
+├── requirements.txt
+├── README.md
 │
 ├── ingestion/
-│   ├── load_to_snowflake.py        # Loads 9 CSV files → Snowflake RAW
-│   └── test_connection.py          # Verifies Snowflake connectivity
+│   ├── load_to_snowflake.py
+│   └── test_connection.py
 │
 ├── ecommerce_dbt/
-│   ├── dbt_project.yml             # dbt project configuration
+│   ├── dbt_project.yml
 │   └── models/
-│       ├── staging/                # Silver layer — 5 cleaning models
-│       │   ├── sources.yml         # Source definitions + tests
+│       ├── staging/
+│       │   ├── sources.yml
 │       │   ├── stg_orders.sql
 │       │   ├── stg_customers.sql
 │       │   ├── stg_order_items.sql
 │       │   ├── stg_products.sql
 │       │   └── stg_order_payments.sql
-│       └── marts/                  # Gold layer — 3 business models
-│           ├── schema.yml          # Model documentation + tests
-│           ├── fct_orders.sql      # Core fact table (99,441 rows)
-│           ├── monthly_revenue.sql # Revenue trends by month
-│           └── top_products.sql    # Top 20 product categories
+│       └── marts/
+│           ├── schema.yml
+│           ├── fct_orders.sql
+│           ├── monthly_revenue.sql
+│           └── top_products.sql
 │
 └── dashboard/
-└── app.py                      # Streamlit dashboard (5 charts)
+    └── app.py
+```
 
-![ss1](../Streamlit1.png)
-![ss2](../Streamlit2.png)
-![ss3](../Streamlit3.png)
-![ss4](../Streamlit4.png)
-![ss5](../Streamlit5.png)
-![ss6](../Streamlit6.png)
+![Dashboard 1](Streamlit1.png)
+![Dashboard 2](Streamlit2.png)
+![Dashboard 3](Streamlit3.png)
+![Dashboard 4](Streamlit4.png)
+![Dashboard 5](Streamlit5.png)
+![Dashboard 6](Streamlit6.png)
+
 
 ## 🔍 dbt Lineage Graph
 
-![lg1](<../Lineage Graph.png>)
+![lineage Graph](LineageGraph.png)
 
 > The lineage graph shows how data flows from RAW sources → staging models → marts models. Built automatically by dbt docs.
 
